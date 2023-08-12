@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Turtle Hatcheries Ceylon - Buy Tickets</title>
+  <link rel="stylesheet" href="Styles/style2.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <a href="index.html"><img src="Media/TurtleHatcheryLogo.png" class="logo-png" alt="Home"></a>
+      <h1 class="main-heading">Buy Tickets</h1>
+    </nav>
+  </section>
+
+  <div class="body">
+    <h2 class="sub-heading">Date</h2>
+    <input type="date" id="datePicker" name="datePicker" class="datePicker">
+    <br><br><br>
+
+    <h2 class="sub-heading">Guests</h2>
+    <table class="guest-type-selector">
+      <tr>
+        <td>Local Adult</td>
+        <td>
+          <button class="guest-btn" onclick="SlAdult(-1)">-</button>
+          <span id="SlAdult">0</span>
+          <button class="guest-btn" onclick="SlAdult(1)">+</button>
+        </td>
+      </tr>
+      <tr>
+          <td>Local Child</td>
+          <td>
+            <button class="guest-btn" onclick="SlChild(-1)">-</button>
+            <span id="SlChild">0</span>
+            <button class="guest-btn" onclick="SlChild(1)">+</button>
+          </td>
+      </tr>
+      <tr>
+        <td>Foreign Adult</td>
+        <td>
+          <button class="guest-btn" onclick="ForeignAdult(-1)">-</button>
+          <span id="ForeignAdult">0</span>
+          <button class="guest-btn" onclick="ForeignAdult(1)">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Foreign Child</td>
+        <td>
+          <button class="guest-btn" onclick="ForeignChild(-1)">-</button>
+          <span id="ForeignChild">0</span>
+          <button class="guest-btn" onclick="ForeignChild(1)">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Infant</td>
+        <td>
+          <button class="guest-btn" onclick="Infant(-1)">-</button>
+          <span id="Infant">0</span>
+          <button class="guest-btn" onclick="Infant(1)">+</button>
+        </td>
+      </tr>
+    </table>
+    <br><br><br>
+
+    <h2 class="sub-heading">Duration</h2>
+    <div id="timeSlots">
+      <button class="dateSelectButtons">07:00 - 08:00</button>
+      <button class="dateSelectButtons">08:00 - 09:00</button>
+      <button class="dateSelectButtons">09:00 - 10:00</button>
+      <button class="dateSelectButtons">10:00 - 11:00</button>
+      <button class="dateSelectButtons">11:00 - 12:00</button>
+      <button class="dateSelectButtons">12:00 - 13:00</button>
+      <button class="dateSelectButtons">13:00 - 14:00</button>
+      <button class="dateSelectButtons">14:00 - 15:00</button>
+      <button class="dateSelectButtons">15:00 - 16:00</button>
+      <button class="dateSelectButtons">16:00 - 17:00</button>
+      <button class="dateSelectButtons">17:00 - 18:00</button>
+    </div>
+    <br><br><br>
+
+    <h2 class="sub-heading">Rates</h2>
+    <table class="price-table">
+        <tr>
+            <th>Guest Type</th>
+            <th>Price/Peak hours *</th>
+            <th>Price/Normal hours * *</th>
+        </tr>
+        <tr>
+            <td class="price-table-item">Local Adult</td>
+            <td class="price-table-item">$6.00</td>
+            <td class="price-table-item">$4.00</td>
+        </tr>
+        <tr>
+            <td class="price-table-item">Local Child</td>
+            <td class="price-table-item">$3.00</td>
+            <td class="price-table-item">$2.00</td>
+        </tr>
+        <tr>
+            <td class="price-table-item">Foreign Adult</td>
+            <td class="price-table-item">$13.00</td>
+            <td class="price-table-item">$10.00</td>
+        </tr>
+        <tr>
+            <td class="price-table-item">Foreign Child</td>
+            <td class="price-table-item">$8.00</td>
+            <td class="price-table-item">$5.00</td>
+        </tr>
+        <tr>
+            <td class="price-table-item">Infant * * *</td>
+            <td class="price-table-item">N/A</td>
+            <td class="price-table-item">N/A</td>
+        </tr>
+    </table>
+    
+    <p class="info">* Peak hours are from 10:00 am - 01:00 pm and 03:00 pm - 06:00 pm</p>
+    <p class="info">* * Normal hours are from 07:00 am - 10:00 am and 01:00 pm - 03:00 pm</p>
+    <p class="info">* * * Entrance for infants (under 4 years of age) is free.</p>
+    <br>
+
+    <h2 class="sub-heading">Summary</h2>
+    <table class="summary-table">
+      <tr>
+        <th class="summary-table-item">Date</th>
+        <th id="dateVal" class="summary-table-item"></th>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Time</td>
+        <td id="timeVal" class="summary-table-item"></td>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Duration (Hours)</td>
+        <td class="summary-table-item" id="duration"></td>
+      </tr>
+      <tr>
+        <th class="summary-table-item">Tickets</th>
+        <th class="summary-table-item">Charges ($)</th>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Sri Lankan Adult</td>
+        <td class="summary-table-item" id="slAdultPrice">0</td>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Sri Lankan Child</td>
+        <td id="slChildPrice" class="summary-table-item">0</td>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Foreign Adult</td>
+        <td id="foreignAdultPrice" class="summary-table-item">0</td>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Foreign Child</td>
+        <td class="summary-table-item" id="foreignChildPrice">0</td>
+      </tr>
+      <tr>
+        <td class="summary-table-item">Infant</td>
+        <td class="summary-table-item">Free</td>
+      </tr>
+      <tr>
+        <th class="summary-table-item">Total</th>
+        <th id="TotalPrice" class="summary-table-item">$0.00</th>
+      </tr>
+    </table>
+
+    <a href="Details.html" class="cont-btn">Continue with purchase</a>
+
+  </div>
+
+  <div class="footer">
+    <div class="column-1">
+      <h3>Go to:</h3>
+      <a href="index.html">Home</a>
+      <a href="TurtleCategories.html">Turtle Categories</a>
+      <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatchery</a>
+      <a href="Bentota.html">Bentota Turtle Hatchery</a>
+      <a href="Kosgoda.html">Kosgoda Turtle Hatchery</a>
+      <a href="ThreatsToTurtles.html">Threats to Turtles</a>
+      <a href="PurchaseAndDonate.html">DONATE</a>
+    </div>
+    <div class="column-2">
+      <h3>Subscribe to our newsletter!</h3>
+      <form>
+        <input type="email" placeholder="Enter your e-mail Address here" required>
+        <br>
+        <button type="submit">SUBSCRIBE NOW</button>
+      </form>
+    </div>
+    <div class="column-3">
+      <h3>Contact Us</h3>
+      <p>
+        <u>P/O Address</u><br><i>478, Hikkaduwa Road,<br>Hikkaduwa,<br>Sri Lanka</i>
+        <br>
+        <br>
+        <u>Telephone</u><br><i>0112 345 678<br>0771 321 765</i>
+        <br><br>
+        <u>e-mail</u><br><i>turtlesceylon@gmail.com</i>
+        <br>
+      <div class="social-media">
+        <a href="https://www.instagram.com/"><img src="Media/instagram.png" alt="Instagram"></a>
+        <a href="https://www.twitter.com/"><img src="Media/twitter.png" alt="Twitter"></a>
+        <a href="https://www.tiktok.com/"><img src="Media/facebook.png" alt="TikTok"></a>
+      </div>
+      </p>
+    </div>
+  </div>
+
+<script src="Scripts/Ticket.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Turtle Hatcheries Ceylon - Details</title>
+  <link rel="stylesheet" href="Styles/style2.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <a href="index.html"><img src="Media/TurtleHatcheryLogo.png" class="logo-png" alt="Home"> </a>
+      <h1 class="main-heading">Buy Tickets</h1>
+    </nav>
+  </section>
+  <h2 class="sub-heading">Enter your details</h2>
+  <table class="page-div">
+    <tr>
+      <td>
+        <form id="detailsForm" class="details-form">
+          <div class="user-details">
+
+            <div class="input-box">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Enter your full name here"
+                required><br><br><br>
+            </div>
+            <div class="input-box">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter your phone number here"
+                required><br><br><br>
+            </div>
+            <div class="input-box">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter your e-mail address here"
+                required><br><br><br>
+            </div>
+            <div class="input-box">
+              <label for="confirmEmail">Confirm Email</label>
+              <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Re-enter your e-mail address here"
+                required><br><br><br>
+            </div>
+            <div class="input-box">
+              <label for="gender">Gender</label>
+              <select id="gender" class="gender-dropdown" name="gender">
+                <option value="">Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div><br><br><br>
+          </div>
+        </form>
+
+      </td>
+      <td>
+        <table class="summary-table">
+          <tr>
+            <th class="summary-table-item">Date</th>
+            <th id="dateVal" class="summary-table-item"></th>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Time</td>
+            <td id="timeVal" class="summary-table-item"></td>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Duration (Hours)</td>
+            <td class="summary-table-item" id="duration"></td>
+          </tr>
+          <tr>
+            <th class="summary-table-item">Tickets</th>
+            <th class="summary-table-item">Charges</th>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Sri Lankan Adult</td>
+            <td class="summary-table-item" id="slAdultPrice">0</td>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Sri Lankan Child</td>
+            <td id="slChildPrice" class="summary-table-item">0</td>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Foreign Adult</td>
+            <td id="foreignAdultPrice" class="summary-table-item">0</td>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Foreign Child</td>
+            <td class="summary-table-item" id="foreignChildPrice">0</td>
+          </tr>
+          <tr>
+            <td class="summary-table-item">Infant</td>
+            <td class="summary-table-item">Free</td>
+          </tr>
+          <tr>
+            <th class="summary-table-item">Total</th>
+            <th id="TotalPrice" class="summary-table-item">$0.00</th>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+  <a href="Payment.html"><button id="continueBtn" class="cont-btn" onclick="saveFormData()">Proceed to checkout</button></a>
+
+  <div class="footer">
+    <div class="column-1">
+      <h3>Go to:</h3>
+      <a href="index.html">Home</a>
+      <a href="TurtleCategories.html">Turtle Categories</a>
+      <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatchery</a>
+      <a href="Bentota.html">Bentota Turtle Hatchery</a>
+      <a href="Kosgoda.html">Kosgoda Turtle Hatchery</a>
+      <a href="ThreatsToTurtles.html">Threats to Turtles</a>
+      <a href="PurchaseAndDonate.html">DONATE</a>
+    </div>
+    <div class="column-2">
+      <h3>Subscribe to our newsletter!</h3>
+      <form>
+        <input type="email" placeholder="Enter your e-mail Address here" required>
+        <br>
+        <button type="submit">SUBSCRIBE NOW</button>
+      </form>
+    </div>
+    <div class="column-3">
+      <h3>Contact Us</h3>
+      <p><u>P/O Address</u><br><i>478, Hikkaduwa Road,<br>Hikkaduwa,<br>Sri Lanka</i>
+        <br>
+        <br>
+        <u>Telephone</u><br><i>0112 345 678<br>0771 321 765</i>
+        <br><br>
+        <u>e-mail</u><br><i>turtlesceylon@gmail.com</i>
+        <br>
+      <div class="social-media">
+        <a href="https://www.instagram.com/"><img src="Media/instagram.png" alt="Instagram"></a>
+        <a href="https://www.twitter.com/"><img src="Media/twitter.png" alt="Twitter"></a>
+        <a href="https://www.tiktok.com/"><img src="Media/facebook.png" alt="TikTok"></a>
+      </div>
+      </p>
+    </div>
+  </div>
+
+  <script src="Scripts/Details.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+  <script>
+    var input = document.querySelector("#mobileNumber");
+    window.intlTelInput(input, {
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+    });
+  </script>
+
+</body>
+</html>
