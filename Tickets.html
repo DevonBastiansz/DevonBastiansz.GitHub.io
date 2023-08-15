@@ -25,17 +25,17 @@
       <tr>
         <td>Local Adult</td>
         <td>
-          <button class="guest-btn" onclick="SlAdult(-1)">-</button>
-          <span id="SlAdult">0</span>
-          <button class="guest-btn" onclick="SlAdult(1)">+</button>
+          <button class="guest-btn" onclick="LocalAdult(-1)">-</button>
+          <span id="LocalAdult">0</span>
+          <button class="guest-btn" onclick="LocalAdult(1)">+</button>
         </td>
       </tr>
       <tr>
           <td>Local Child</td>
           <td>
-            <button class="guest-btn" onclick="SlChild(-1)">-</button>
-            <span id="SlChild">0</span>
-            <button class="guest-btn" onclick="SlChild(1)">+</button>
+            <button class="guest-btn" onclick="LocalChild(-1)">-</button>
+            <span id="LocalChild">0</span>
+            <button class="guest-btn" onclick="LocalChild(1)">+</button>
           </td>
       </tr>
       <tr>
@@ -69,15 +69,16 @@
     <div id="timeSlots">
       <button class="dateSelectButtons">07:00 - 08:00</button>
       <button class="dateSelectButtons">08:00 - 09:00</button>
-      <button class="dateSelectButtons">09:00 - 10:00</button>
-      <button class="dateSelectButtons">10:00 - 11:00</button>
-      <button class="dateSelectButtons">11:00 - 12:00</button>
-      <button class="dateSelectButtons">12:00 - 13:00</button>
+      <button class="dateSelectButtons">09:00 - 10:00</button><br>
+      <button id="ph" class="dateSelectButtons">10:00 - 11:00</button>
+      <button id="ph" class="dateSelectButtons">11:00 - 12:00</button>
+      <button id="ph" class="dateSelectButtons">12:00 - 13:00</button><br>
       <button class="dateSelectButtons">13:00 - 14:00</button>
       <button class="dateSelectButtons">14:00 - 15:00</button>
-      <button class="dateSelectButtons">15:00 - 16:00</button>
-      <button class="dateSelectButtons">16:00 - 17:00</button>
-      <button class="dateSelectButtons">17:00 - 18:00</button>
+      <button id="ph" class="dateSelectButtons">15:00 - 16:00</button><br>
+      <button id="ph" class="dateSelectButtons">16:00 - 17:00</button>
+      <button id="ph" class="dateSelectButtons">17:00 - 18:00</button>
+      <button id="cancel-btn" class="dateSelectButtons">Cancel</button>
     </div>
     <br><br><br>
 
@@ -140,11 +141,11 @@
       </tr>
       <tr>
         <td class="summary-table-item">Sri Lankan Adult</td>
-        <td class="summary-table-item" id="slAdultPrice">0</td>
+        <td class="summary-table-item" id="LocalAdultPrice">0</td>
       </tr>
       <tr>
         <td class="summary-table-item">Sri Lankan Child</td>
-        <td id="slChildPrice" class="summary-table-item">0</td>
+        <td id="LocalChildPrice" class="summary-table-item">0</td>
       </tr>
       <tr>
         <td class="summary-table-item">Foreign Adult</td>
