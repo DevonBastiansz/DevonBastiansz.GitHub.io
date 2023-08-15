@@ -1,7 +1,31 @@
 window.onload = function () {
   localStorage.clear();
 };
-//Consecutive selection of slots
+
+//DatePicker
+const datePicker = document.getElementById('datePicker');
+const dateVal = document.getElementById('dateVal');
+
+function updateCell(selectedDate) {
+  dateVal.textContent = selectedDate;
+}
+datePicker.addEventListener('change', function () {
+  const selectedDate = this.value;
+  updateCell(selectedDate);
+});
+
+const defaultDate = datePicker.value;
+updateCell(defaultDate);
+localStorage.setItem("selectedDate", datePicker.value);
+
+window.addEventListener("load", function () {
+  const selectedDate = localStorage.getItem("selectedDate");
+  datePicker.value = selectedDate;
+  updateCell(selectedDate);
+});
+
+
+//Consecutive slots
 function handleSlotSelection(slot) {
 
   if (selectedSlots.includes(slot)) {
@@ -67,8 +91,6 @@ function updateButtons() {
 }
 
 let selectedSlots = [];
-
-//Setting global variable for timeslots
 function resetSelection() {
   selectedSlots = [];
   updateButtons();
@@ -82,29 +104,7 @@ for (const button of buttons) {
   });
 }
 
-
-//DatePicker
-const datePicker = document.getElementById('datePicker');
-const dateVal = document.getElementById('dateVal');
-
-function updateCell(selectedDate) {
-  dateVal.textContent = selectedDate;
-}
-datePicker.addEventListener('change', function () {
-  const selectedDate = this.value;
-  updateCell(selectedDate);
-});
-
-const defaultDate = datePicker.value;
-updateCell(defaultDate);
-localStorage.setItem("selectedDate", datePicker.value);
-
-window.addEventListener("load", function () {
-  const selectedDate = localStorage.getItem("selectedDate");
-  datePicker.value = selectedDate;
-  updateCell(selectedDate);
-});
-
+//Price calculation for peak hours
 function calPrice(peakPrice, offPeakPrice, units) {
   let totalPrice = 0;
   for (i = 0; i < selectedSlots.length; i++) {
@@ -127,16 +127,16 @@ function calPrice(peakPrice, offPeakPrice, units) {
 
 //Total price
 function updateTotalPrice() {
-  let adults = localStorage.getItem("SlAdult");
-  let children = localStorage.getItem("SlChild");
+  let adults = localStorage.getItem("LocalAdult");
+  let children = localStorage.getItem("LocalChild");
   let foreignAdults = localStorage.getItem("ForeignAdult");
   let foreignChildren = localStorage.getItem("ForeignChild");
 
-  let slAdultPrice = calPrice(6, 4, adults);
-  localStorage.setItem("slAdultPrice", slAdultPrice);
+  let LocalAdultPrice = calPrice(6, 4, adults);
+  localStorage.setItem("LocalAdultPrice", LocalAdultPrice);
 
-  let slChildPrice = calPrice(3, 2, children);
-  localStorage.setItem("slChildPrice", slChildPrice);
+  let LocalChildPrice = calPrice(3, 2, children);
+  localStorage.setItem("LocalChildPrice", LocalChildPrice);
 
   let foreignAdultPrice = calPrice(13, 10, foreignAdults);
   localStorage.setItem("foreignAdultPrice", foreignAdultPrice);
@@ -144,43 +144,39 @@ function updateTotalPrice() {
   let foreignChildPrice = calPrice(8, 5, foreignChildren);
   localStorage.setItem("foreignChildPrice", foreignChildPrice);
 
-  let TotalPrice = slAdultPrice + slChildPrice + foreignAdultPrice + foreignChildPrice;
+  let TotalPrice = LocalAdultPrice + LocalChildPrice + foreignAdultPrice + foreignChildPrice;
   localStorage.setItem("TotalPrice", TotalPrice);
 
-  document.getElementById("slAdultPrice").innerText = slAdultPrice;
-  document.getElementById("slChildPrice").innerText = slChildPrice;
-  document.getElementById("foreignAdultPrice").innerText =
-    foreignAdultPrice;
-  document.getElementById("foreignChildPrice").innerText =
-    foreignChildPrice;
-
-
+  document.getElementById("LocalAdultPrice").innerText = LocalAdultPrice;
+  document.getElementById("LocalChildPrice").innerText = LocalChildPrice;
+  document.getElementById("foreignAdultPrice").innerText =foreignAdultPrice;
+  document.getElementById("foreignChildPrice").innerText =foreignChildPrice;
   document.getElementById("TotalPrice").innerText = TotalPrice;
 }
 
 //Local Adult
-function SlAdult(click) {
-  const SlAdult = document.getElementById("SlAdult");
-  const sumvalue = parseInt(SlAdult.innerText) + click;
-  localStorage.setItem("SlAdult", sumvalue);
-  SlAdult.innerText = sumvalue;
+function LocalAdult(click) {
+  const LocalAdult = document.getElementById("LocalAdult");
+  const sumvalue = parseInt(LocalAdult.innerText) + click;
+  localStorage.setItem("LocalAdult", sumvalue);
+  LocalAdult.innerText = sumvalue;
 
   if (sumvalue < 0) {
-    SlAdult.innerText = 0;
-    localStorage.setItem("SlAdult", 0);
+    LocalAdult.innerText = 0;
+    localStorage.setItem("LocalAdult", 0);
   }
 }
 
 //Local Child
-function SlChild(click) {
-  const SlChild = document.getElementById("SlChild");
-  const sumvalue = parseInt(SlChild.innerText) + click;
-  localStorage.setItem("SlChild", sumvalue);
-  SlChild.innerText = sumvalue;
+function LocalChild(click) {
+  const LocalChild = document.getElementById("LocalChild");
+  const sumvalue = parseInt(LocalChild.innerText) + click;
+  localStorage.setItem("LocalChild", sumvalue);
+  LocalChild.innerText = sumvalue;
 
   if (sumvalue < 0) {
-    SlChild.innerText = 0;
-    localStorage.setItem("SlChild", 0);
+    LocalChild.innerText = 0;
+    localStorage.setItem("LocalChild", 0);
   }
 }
 
