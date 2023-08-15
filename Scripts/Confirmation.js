@@ -5,8 +5,8 @@ function updateTableWithData() {
     const dateVal = localStorage.getItem("selectedDate");
     const timeVal = localStorage.getItem("selectedSlots");
     const duration = localStorage.getItem("duration");
-    const slAdultPrice = localStorage.getItem("slAdultPrice");
-    const slChildPrice = localStorage.getItem("slChildPrice");
+    const LocalAdultPrice = localStorage.getItem("LocalAdultPrice");
+    const LocalChildPrice = localStorage.getItem("LocalChildPrice");
     const foreignAdultPrice = localStorage.getItem("foreignAdultPrice");
     const foreignChildPrice = localStorage.getItem("foreignChildPrice");
     const TotalPrice = localStorage.getItem("TotalPrice");
@@ -15,8 +15,8 @@ function updateTableWithData() {
     document.getElementById("dateVal").innerText = dateVal;
     document.getElementById("timeVal").innerText = timeVal;
     document.getElementById("duration").innerText = duration;
-    document.getElementById("slAdultPrice").innerText = slAdultPrice;
-    document.getElementById("slChildPrice").innerText = slChildPrice;
+    document.getElementById("LocalAdultPrice").innerText = LocalAdultPrice;
+    document.getElementById("LocalChildPrice").innerText = LocalChildPrice;
     document.getElementById("foreignAdultPrice").innerText = foreignAdultPrice;
     document.getElementById("foreignChildPrice").innerText = foreignChildPrice;
     document.getElementById("TotalPrice").innerText = TotalPrice;
