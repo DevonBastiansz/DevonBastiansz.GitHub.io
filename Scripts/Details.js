@@ -1,14 +1,13 @@
 const detailsForm = document.getElementById("detailsForm");
 const continueBtn = document.getElementById("continueBtn");
 
-// Function to enable the "Continue with purchase" button if all necessary information is provided
+//Activating the Proceed to checkout button
 function checkCompletion() {
     const fullName = detailsForm.fullName.value;
     const mobileNumber = detailsForm.mobileNumber.value;
     const email = detailsForm.email.value;
     const confirmEmail = detailsForm.confirmEmail.value;
 
-    // Check if all required fields are filled and if the emails match
     if (fullName && mobileNumber && email && confirmEmail && email === confirmEmail) {
         continueBtn.disabled = false;
     } else {
@@ -37,7 +36,7 @@ function saveFormData() {
     localStorage.setItem("gender", detailsForm.gender.value);
 }
 
-// Function to load form data from local storage
+//Loading form data from local storage
 function loadFormData() {
     detailsForm.fullName.value = localStorage.getItem("fullName") || "";
     detailsForm.mobileNumber.value = localStorage.getItem("mobileNumber") || "";
@@ -46,10 +45,8 @@ function loadFormData() {
     detailsForm.gender.value = localStorage.getItem("gender") || "";
 }
 
-//Call loadFormData() on page load to populate form fields if data is available in local storage
 window.addEventListener("load", loadFormData);
 
-//Event listener for form submission
 detailsForm.addEventListener("submit", function (event) {
     event.preventDefault();
     saveFormData();
@@ -60,8 +57,8 @@ function updateTableWithData() {
     const timeVal = localStorage.getItem("selectedSlots");
     const duration = localStorage.getItem("duration");
     const timeval = localStorage.getItem("timeval");
-    const slAdultPrice = localStorage.getItem("slAdultPrice");
-    const slChildPrice = localStorage.getItem("slChildPrice");
+    const LocalAdultPrice = localStorage.getItem("LocalAdultPrice");
+    const LocalChildPrice = localStorage.getItem("LocalChildPrice");
     const foreignAdultPrice = localStorage.getItem("foreignAdultPrice");
     const foreignChildPrice = localStorage.getItem("foreignChildPrice");
     const TotalPrice = localStorage.getItem("TotalPrice");
@@ -70,8 +67,8 @@ function updateTableWithData() {
     document.getElementById("dateVal").innerText = dateVal;
     document.getElementById("timeVal").innerText = timeVal;
     document.getElementById("duration").innerText = duration;
-    document.getElementById("slAdultPrice").innerText = slAdultPrice;
-    document.getElementById("slChildPrice").innerText = slChildPrice;
+    document.getElementById("LocalAdultPrice").innerText = LocalAdultPrice;
+    document.getElementById("LocalChildPrice").innerText = LocalChildPrice;
     document.getElementById("foreignAdultPrice").innerText = foreignAdultPrice;
     document.getElementById("foreignChildPrice").innerText = foreignChildPrice;
     document.getElementById("TotalPrice").innerText = TotalPrice;
