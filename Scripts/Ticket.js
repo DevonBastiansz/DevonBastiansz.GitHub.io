@@ -24,7 +24,6 @@ window.addEventListener("load", function () {
   updateCell(selectedDate);
 });
 
-
 //Consecutive slots
 function handleSlotSelection(slot) {
 
@@ -132,6 +131,7 @@ function updateTotalPrice() {
   let foreignAdults = localStorage.getItem("ForeignAdult");
   let foreignChildren = localStorage.getItem("ForeignChild");
 
+//Setting prices to the local storage
   let LocalAdultPrice = calPrice(6, 4, adults);
   localStorage.setItem("LocalAdultPrice", LocalAdultPrice);
 
@@ -147,6 +147,8 @@ function updateTotalPrice() {
   let TotalPrice = LocalAdultPrice + LocalChildPrice + foreignAdultPrice + foreignChildPrice;
   localStorage.setItem("TotalPrice", TotalPrice);
 
+
+//Displaying prices
   document.getElementById("LocalAdultPrice").innerText = LocalAdultPrice;
   document.getElementById("LocalChildPrice").innerText = LocalChildPrice;
   document.getElementById("foreignAdultPrice").innerText =foreignAdultPrice;
@@ -154,6 +156,7 @@ function updateTotalPrice() {
   document.getElementById("TotalPrice").innerText = TotalPrice;
 }
 
+//Setting guest type values to the local storage
 //Local Adult
 function LocalAdult(click) {
   const LocalAdult = document.getElementById("LocalAdult");
