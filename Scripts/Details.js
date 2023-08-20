@@ -1,13 +1,21 @@
+//Retrieving the details form elements
 const detailsForm = document.getElementById("detailsForm");
+
+//Retrieving the continue button
 const continueBtn = document.getElementById("continueBtn");
 
-//Activating the Proceed to checkout button
+function updateTableWithData() {
+    const dateVal = localStorage.getItem("selectedDate");
+    document.getElementById("dateVal").innerText = dateVal;
+}
+
 function checkCompletion() {
     const fullName = detailsForm.fullName.value;
     const mobileNumber = detailsForm.mobileNumber.value;
     const email = detailsForm.email.value;
     const confirmEmail = detailsForm.confirmEmail.value;
 
+//Activating the Proceed to checkout button if every field is filled
     if (fullName && mobileNumber && email && confirmEmail && email === confirmEmail) {
         continueBtn.disabled = false;
     } else {
@@ -15,19 +23,12 @@ function checkCompletion() {
     }
 }
 
-
-function updateTableWithData() {
-    const dateVal = localStorage.getItem("selectedDate");
-    document.getElementById("dateVal").innerText = dateVal;
-}
-
-
-
 // Call checkCompletion() on form input change
 detailsForm.addEventListener("input", checkCompletion);
 // Call checkCompletion() on page load in case of saved data
 window.addEventListener("load", checkCompletion);
 
+//Setting the form data to local storage
 function saveFormData() {
     localStorage.setItem("fullName", detailsForm.fullName.value);
     localStorage.setItem("mobileNumber", detailsForm.mobileNumber.value);
@@ -52,6 +53,7 @@ detailsForm.addEventListener("submit", function (event) {
     saveFormData();
 });
 
+//Updating the summary table with data
 function updateTableWithData() {
     const dateVal = localStorage.getItem("selectedDate");
     const timeVal = localStorage.getItem("selectedSlots");
