@@ -12,7 +12,7 @@ function paymentForm() {
     }
 }
 
-
+//Updating the summary table with data
 function updateTableWithData() {
     const dateVal = localStorage.getItem("selectedDate");
     const timeVal = localStorage.getItem("selectedSlots");
