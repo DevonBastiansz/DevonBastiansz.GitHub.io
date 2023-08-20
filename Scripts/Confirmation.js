@@ -1,3 +1,4 @@
+//Retrieving the summary table data
 function updateTableWithData() {
     const name = localStorage.getItem("fullName");
     const tele = localStorage.getItem("mobileNumber");
